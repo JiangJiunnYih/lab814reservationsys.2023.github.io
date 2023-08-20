@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAB 814 公用電腦使用預約系統</title>
+    <link rel="icon" type="image/x-icon" href="webicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body { font-family: Arial; background-image: url('reservation_img.jpg'); background-repeat: no-repeat;
+  background-size: cover;}
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            position: center;
+            top: 5px;
+            font-size: 1.2rem;
+            color: #0e2431;
+        }
+        
+        
+        h2 {
+      text-align: center; /* Center the h2 element */
+    }
+    h3 {
+      text-align: center; /* Center the h2 element */
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+        
+        
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .iframe-container {
+        justify-content: center;
+    align-items: center;
+            display: none;
+            width: 100%;
+            height: 500px;
+        }
+        
+        footer {
+  text-align: Left;
+  padding: 3px;
+  background-color: black;
+  color: white;
+}
+
+.button2 {
+  width: 100%; padding: 10px; background-color: #039BE5; color: #fff; border: none; cursor: pointer;
+}
+
+.button2:hover {
+  background-color: #0277BD;
+}
+
+.button {
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+        @media screen and (max-width: 768px) {
+    #1101Aiframe, #LAB814iframe {
+      height: 400px; /* Adjust the height for smaller screens */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    #1101Aiframe, #LAB814iframe {
+      height: 300px; /* Adjust the height further for smaller screens */
+    }
+        
+    </style>
+    <script>
+        function showIframe(iframeId) {
+            // Hide all iframe containers
+            var iframeContainers = document.getElementsByClassName("iframe-container");
+            for (var i = 0; i < iframeContainers.length; i++) {
+                iframeContainers[i].style.display = "none";
+            }
+
+            // Show the selected iframe container
+            var selectedIframe = document.getElementById(iframeId);
+            selectedIframe.style.display = "block";
+        }
+
+        // Open the first iframe container by default
+        window.onload = function() {
+            var defaultIframe = document.getElementById("首頁");
+            defaultIframe.style.display = "block";
+        };
+    </script>
+</head>
+
+<script>
+      // Function to update the time and date on the page
+      function updateTime() {
+        // Get the current date and time
+        var now = new Date();
+
+        // Format the time as HH:MM:SS
+        var hours = now.getHours().toString().padStart(2, '0');
+        var minutes = now.getMinutes().toString().padStart(2, '0');
+        var seconds = now.getSeconds().toString().padStart(2, '0');
+        var timeString = hours + ':' + minutes + ':' + seconds;
+
+        // Format the date as YYYY-MM-DD
+        var year = now.getFullYear();
+        var month = (now.getMonth() + 1).toString().padStart(2, '0');
+        var day = now.getDate().toString().padStart(2, '0');
+        var dateString = year + '-' + month + '-' + day + '&nbsp;&nbsp;&nbsp;';
+
+        // Update the HTML element with the time and date
+        var dateTimeString = '當前時間: ' + dateString + timeString;
+        show = dateTimeString.fontsize(3)
+        document.getElementById('datetime').innerHTML = show;
+      }
+      setInterval(updateTime, 1000);
+    </script>
+
+
+
+<body>
+
+<div class="header">
+    <h1 class="logo">LAB 814 RESERVATION SYSTEM</h1>
+</div>
+
+<div class="navbar">
+
+    <a href="#" onclick="showIframe('首頁')">首頁</a>
+    <a href="#" onclick="showIframe('1101B 電腦預約')">1101B 電腦預約</a>
+    <a href="#" onclick="showIframe('LAB 814 電腦預約')">LAB 814 電腦預約</a>
+    <a href="#" onclick="showIframe('1101B 當前預約狀況')">1101B 當前預約狀況</a>
+    <a href="#" onclick="showIframe('LAB 814 當前預約狀況')">LAB 814 當前預約狀況</a>
+    <a href="#" onclick="showIframe('五日以上預約請求')">五日以上預約請求</a>
+    
+</div>
+
+<div id="首頁" class="iframe-container">
+    <h3>實驗室公用電腦預約系統預約說明與規則</h3>
+<P>1. 本預約表單之目的係為避免有多位同學同時登入同台電腦造成爭搶滑鼠、程式執行中斷或資料遺失，故請勿於他人預約時段登入有預約之電腦，感謝配合</P>
+<p>2. 本表單為本實驗室專用，請記得在使用後登出，並勿讓非本實驗室之同學在未經老師許可之情形下填寫此預約表單，如經發現將取消該次預約，密碼可能不定期變更</p>
+<p>3. 本系統可供預約之各電腦皆為公用電腦，請勿儲存執行程式必須外之私人文件或檔案，謝謝配合</p>
+<p>4. 預約單位以天為計，每人每次限預約 7 天時間，如有超過 7 天預約之需求，請與水老師聯繫</p>
+<p>5. 預約電腦共分兩台，1101B 電腦所指為近日新安裝於碩二實驗室 MONTECH 之電腦；LAB 814 則是指目前安裝於老師辦公室靠窗之電腦，請確認欲預約之電腦是否正確</p>
+</div>
+
+<div id="1101B 電腦預約" class="iframe-container">
+    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0HvUd61LUMnleLAsEulhccFj0VP7VyE4nMxSCNZP8s0stMMl2fKN7qjErg9xjXWEd5HX4F0jBy?gv=true" style="border: 0" width="100%" height="500" frameborder="0"></iframe>
+</div>
+
+<div id="LAB 814 電腦預約" class="iframe-container">
+    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ00ew8v82in3Sx1da_Y9paSdCNmZJePmeidJ2KbDIIMPIaTZS1UlnmTmmokDAVIX07fqZ6cu_cM?gv=true" style="border: 0" width="100%" height="500" frameborder="0"></iframe>
+</div>
+
+<div id="1101B 當前預約狀況" class="iframe-container">
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTaipei&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&mode=MONTH&showTz=1&showCalendars=0&src=bGFiMTEwMXJlc2VydmF0aW9uc3lzdGVtQGdtYWlsLmNvbQ&color=%23039BE5" style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div id="LAB 814 當前預約狀況" class="iframe-container">
+    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTaipei&mode=MONTH&showTitle=0&showNav=1&showPrint=0&showDate=1&showCalendars=0&showTabs=0&src=bGFiODE0cmVzZXJ2YXRpb3N5c3RlbUBnbWFpbC5jb20&color=%23039BE5" style="border-width:0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div id="五日以上預約請求" class="iframe-container">
+<h3>五日以上預約請求</h3>
+    <form id="requestForm">
+    <label for="name">姓名:</label>
+    <input type="text" id="name" required>
+
+    <label for="phone">手機:</label>
+    <input type="tel" id="phone" pattern="[0-9]{10}" required>
+
+    <label for="email">電子郵件:</label>
+    <input type="email" id="email" required>
+    
+    <label for="day">預計借用天數(小於 100 天):</label>
+    <input type="tel" id="day" pattern="[0-9]{2}" required>
+
+    <label for="request">使用原因:</label>
+    <textarea id="request" name="request" rows="4" required></textarea>
+
+    <input type="submit" value="建立電子郵件">
+  </form>
+</div>
+
+
+<script>
+    // JavaScript code to handle form submission and email link
+    document.getElementById("requestForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const day = document.getElementById("day").value;
+      const request = document.getElementById("request").value;
+
+      const emailLink = "mailto:lab1101reservationsystem@gmail.com?cc=olivereddie1996.mg10@nycu.edu.tw,lab1101reservationsystem@gmail.com,lab814reservatiosystem@gmail.com&subject=預約超過五天請求通知&body=Dear 水老師:%0D%0A%0D%0A"
+        + encodeURIComponent("\t" + name + "\t同學鑑於\t" + request + "\t之需求，故想請求" + day + "天之預約，敬請查照。\n\nBest Regards,\n\n" + name + "\nPhone: " + phone + "\nEmail: " + email + "\n\n");
+
+      window.location.href = emailLink;
+    });
+  </script>
+  
+  <br><form onsubmit="return logout()">
+    <button class="button button2">登出</button>
+  </form><br>
+
+</body>
+<script>
+    // Check if the user is logged in by verifying the presence of the login flag in session storage.
+    var isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+      // If the user is not logged in, redirect them back to the login page.
+      window.location.href = 'index.html';
+    }
+  </script>
+
+  <footer>
+<p>實驗室位址:&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/maps?q=24.7847265,120.9973599" target="_blank" style="color: #FFFFFF;">新竹市東區大學路1001號 綜合一館 LAB 814</a></p>
+<p>碩一實驗室:&nbsp;&nbsp;&nbsp;新竹市東區大學路1001號 綜合一館 10 樓 統倉</p>
+<p>碩二實驗室:&nbsp;&nbsp;&nbsp;新竹市東區大學路1001號 綜合一館 11 樓 1101B</p>
+<p id="datetime"></p>
+<div style="text-align:center;"><h6><font face=@標楷體 size=2>Copyright © 2023 All Right Reserved</h6></div>
+</footer>
+
+</html>
