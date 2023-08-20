@@ -63,14 +63,21 @@
         .navbar {
             overflow: hidden;
             background-color: #333;
+            display: flex;
+            justify-content: space-between; /* Distribute items evenly */
+            align-items: center; /* Center items vertically */
         }
         .navbar a {
-            float: left;
-            display: block;
             color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            flex-grow: 1; /* Allow items to grow and fill space */
+            flex-basis: 0; /* Ensure items take equal space */
+        }
+        .navbar .icon {
+            display: none;
+            cursor: pointer;
         }
         .iframe-container {
         justify-content: center;
